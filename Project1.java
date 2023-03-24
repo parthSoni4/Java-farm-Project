@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 // import javax.swing.JTabbedPane;
-public class Project1{
+public class Project1 implements ActionListener{
     void Option()
     {
 
@@ -27,6 +27,16 @@ public class Project1{
         signup.add(submit1);
         signup.add(password);
         signup.add(username);
+        // adding action listener
+        // submit1.addActionListener(this);
+        ActionListener listener1_sign=new ActionListener(){
+            public void actionPerformed(ActionEvent e)
+            {
+                System.out.println("sign up section");
+            }
+        };
+        submit1.addActionListener(listener1_sign);
+
 
 
         //  Content of user login
@@ -42,6 +52,15 @@ public class Project1{
         login.add(username2);
         login.add(password2);
         login.add(name);
+        // Action listener for login section
+        ActionListener listener2_login=new ActionListener() {
+            public void actionPerformed(ActionEvent e )
+            {
+                System.out.println("In the login section");
+            }
+        };
+        submit2.addActionListener(listener2_login);
+
 
         // content of admin login
         JTextField admin_username=new JTextField("Enter your username");
@@ -53,13 +72,31 @@ public class Project1{
         admin.add(submit3);
         admin.add(admin_password);
         admin.add(admin_username);
-       
+        // action listener for admin section
+        ActionListener listener3_admin=new ActionListener() {
+            
+                public void actionPerformed(ActionEvent e)
+                {
+                    System.out.println("in admin section");
+                }
+            
+        };  
+        submit3.addActionListener(listener3_admin);
+        
+        
         
         f1.add(main);
         f1.setSize(500,500);
         f1.setVisible(true);
 
+
     }
+    public void actionPerformed( ActionEvent e)
+    {
+        System.out.println("We are here");
+    }
+
+    
     public static void main(String atgs[])
     {
         Project1 p1=new Project1();
